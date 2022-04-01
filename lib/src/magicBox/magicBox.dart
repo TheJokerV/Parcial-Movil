@@ -50,15 +50,6 @@ class _MagicBox extends State<MagicBox>{
     });
   }
 
-  // comparation() {
-  //   setState(() {
-  //     if(data.num1 != data.num2){
-  //       noEqual = true;
-        
-  //     }else{noEqual = false;}
-  //   });
-  // }
-
   result() {
     sumMatriz();
     setState(() {
