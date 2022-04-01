@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:parcial_movil/src/buttons/button1.dart';
 import 'package:parcial_movil/src/buttons/button2.dart';
 import 'package:parcial_movil/src/buttons/button3.dart';
+import 'package:parcial_movil/src/buttons/button4.dart';
+import 'package:parcial_movil/src/buttons/button5.dart';
+import 'package:parcial_movil/src/buttons/button6.dart';
+import 'package:parcial_movil/src/buttons/button7.dart';
+import 'package:parcial_movil/src/buttons/button8.dart';
+import 'package:parcial_movil/src/buttons/button9.dart';
 
 class MagicBox extends StatefulWidget{
 
@@ -14,21 +20,55 @@ class MagicBox extends StatefulWidget{
 
 class _MagicBox extends State<MagicBox>{ 
 
-  final data = Data(num1: 1, num2: 2, num3: 3);
+  final data = Data(num1: 1, num2: 2, num3: 3, 
+                    num4: 4, num5: 5, num6: 6, 
+                    num7: 7, num8: 8, num9: 9);
 
-  int sum1 = 0;
-  int sum2 = 0;
-  int sum3 = 0;
-  int sum4 = 0;
-  int sum5 = 0;
-  int sum6 = 0;
-  int sum7 = 0;
-  int sum8 = 0;
+  int hrz1 = 0;
+  int hrz2 = 0;
+  int hrz3 = 0;
+  int ver1 = 0;
+  int ver2 = 0;
+  int ver3 = 0;
+  int dgn1 = 0;
+  int dgn2 = 0;
 
-  sumRow1(){
+  bool noEqual = false;
+  String answer = "a";
+
+  sumMatriz(){
     
     setState(() {
-      sum1 = data.num1 + data.num2 + data.num3;
+      hrz1 = data.num1 + data.num2 + data.num3;
+      hrz2 = data.num4 + data.num5 + data.num6;
+      hrz3 = data.num7 + data.num8 + data.num9;
+      ver1 = data.num1 + data.num4 + data.num7;
+      ver2 = data.num2 + data.num5 + data.num8;
+      ver3 = data.num3 + data.num6 + data.num9;
+      dgn1 = data.num1 + data.num5 + data.num9;
+      dgn2 = data.num7 + data.num5 + data.num3;
+    });
+  }
+
+  // comparation() {
+  //   setState(() {
+  //     if(data.num1 != data.num2){
+  //       noEqual = true;
+        
+  //     }else{noEqual = false;}
+  //   });
+  // }
+
+  result() {
+    sumMatriz();
+    setState(() {
+
+        if(hrz1 == 15 && hrz2 == 15 && hrz3 == 15 && ver1 == 15 && ver2 == 15 && ver3 == 15 && dgn1 == 15 ){
+
+          answer = "It's a magic box";
+
+        }else{answer = "It's not a magic box";}
+       
     });
   }
 
@@ -67,66 +107,66 @@ class _MagicBox extends State<MagicBox>{
               )
             ],
           ),
-        // Row(mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1(v1)
-        //             ],
-        //             )
-        //       ),            
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1()
-        //             ],
-        //             )
-        //       ),
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1()
-        //             ],
-        //             )
-        //       )
-        //     ],
-        //   ),
-        // Row(mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1()
-        //             ],
-        //             )
-        //       ),            
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1()
-        //             ],
-        //             )
-        //       ),
-        //       Card(
-        //         child: 
-        //           Column(
-        //             children: [
-        //               Button1()
-        //             ],
-        //             )
-        //       )
-        //     ],
-        //   ),
+        Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button4(data: data)
+                    ],
+                    )
+              ),            
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button5(data: data)
+                    ],
+                    )
+              ),
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button6(data: data)
+                    ],
+                    )
+              )
+            ],
+          ),
+        Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button7(data: data)
+                    ],
+                    )
+              ),            
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button8(data: data)
+                    ],
+                    )
+              ),
+              Card(
+                child: 
+                  Column(
+                    children: [
+                      Button9(data: data)
+                    ],
+                    )
+              )
+            ],
+          ),
             Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){sumRow1();}, child: Icon(Icons.summarize)),
-                  Text(this.sum1.toString()),
+                  ElevatedButton(onPressed: (){result();}, child: Icon(Icons.summarize)),
+                  Text(this.answer.toString())
 
                 ],)
         ]
@@ -141,6 +181,14 @@ class Data {
   int num1;
   int num2;
   int num3;
+  int num4;
+  int num5;
+  int num6;
+  int num7;
+  int num8;
+  int num9;
 
-  Data({required this.num1, required this.num2, required this.num3});
+  Data({required this.num1, required this.num2, required this.num3,
+        required this.num4, required this.num5, required this.num6,
+        required this.num7, required this.num8, required this.num9,});
 }
