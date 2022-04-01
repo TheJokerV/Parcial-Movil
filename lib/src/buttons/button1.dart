@@ -28,7 +28,7 @@ class _Button1 extends State<Button1>{
   Widget build(BuildContext context) {
     var button1 = Column(
       children: [
-        ElevatedButton(onPressed: (){netxNumber();}, child: Text(this.widget.data.num1.toString()))
+        ElevatedButton(onPressed: (){netxNumber();}, child: Text(this.widget.data.num1.toString(), style: TextStyle(fontSize: 25),))
       ],
     );
     return button1;

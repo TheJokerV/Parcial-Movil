@@ -33,8 +33,7 @@ class _MagicBox extends State<MagicBox>{
   int dgn1 = 0;
   int dgn2 = 0;
 
-  bool noEqual = false;
-  String answer = "a";
+  String answer = "";
 
   sumMatriz(){
     
@@ -47,25 +46,20 @@ class _MagicBox extends State<MagicBox>{
       ver3 = data.num3 + data.num6 + data.num9;
       dgn1 = data.num1 + data.num5 + data.num9;
       dgn2 = data.num7 + data.num5 + data.num3;
-    });
-  }
-
-  result() {
-    sumMatriz();
-    setState(() {
 
         if(hrz1 == 15 && hrz2 == 15 && hrz3 == 15 && ver1 == 15 && ver2 == 15 && ver3 == 15 && dgn1 == 15 ){
 
           answer = "It's a magic box";
 
         }else{answer = "It's not a magic box";}
-       
+
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    var mBox = Container(decoration: BoxDecoration(color: Colors.yellow),
+    var mBox = Center (child: Container(height: 600, width: 600, 
+      decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 6)), 
     
       child: Column(
         children: [
@@ -156,13 +150,19 @@ class _MagicBox extends State<MagicBox>{
           ),
             Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){result();}, child: Icon(Icons.summarize)),
-                  Text(this.answer.toString())
-
+                  Column(
+                    children: [
+                      Text("Validate magic box", style: TextStyle(fontSize: 25)),
+                      ElevatedButton(onPressed: (){sumMatriz();}, child: Icon(Icons.summarize)),
+                      Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
+                        child: Text(this.answer.toString(), style: TextStyle(backgroundColor: Colors.blue, fontSize: 28),),)
+                      
+                      ],
+                  )
                 ],)
         ]
         ),
-    );
+    ));
 
     return mBox;
   }
