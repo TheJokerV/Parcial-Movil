@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:parcial_movil/src/buttons/button1.dart';
+import 'package:parcial_movil/src/buttons/button2.dart';
+import 'package:parcial_movil/src/buttons/button3.dart';
 
 class MagicBox extends StatefulWidget{
+
   @override
   State<StatefulWidget> createState() {
     return _MagicBox();
@@ -8,44 +12,29 @@ class MagicBox extends StatefulWidget{
 
 }
 
-class _MagicBox extends State<MagicBox>{
+class _MagicBox extends State<MagicBox>{ 
 
-int v1 = 1;
-int v2 = 1;
-int v3 = 1;
-int v4 = 1;
-int v5 = 1;
-int v6 = 1;
-int v7 = 1;
-int v8 = 1;
-int v9 = 1;
+  final data = Data(num1: 1, num2: 2, num3: 3);
 
-nextNumber(int x, int identificador) {
+  int sum1 = 0;
+  int sum2 = 0;
+  int sum3 = 0;
+  int sum4 = 0;
+  int sum5 = 0;
+  int sum6 = 0;
+  int sum7 = 0;
+  int sum8 = 0;
 
-  setState(() {
-    if(x>8){
-
-      x=1;
-
-
-    }else{x++;}
-  
-    if(identificador==v1) {v1 = x;}
-    if(identificador==v2) {v2 = x;}
-    if(identificador==v3) {v3 = x;}
-    if(identificador==v4) {v4 = x;}
-    if(identificador==v5) {v5 = x;}
-    if(identificador==v6) {v6 = x;}
-    if(identificador==v7) {v7 = x;}
-    if(identificador==v8) {v8 = x;}
-    if(identificador==v9) {v9 = x;}
- 
-  });
-}
+  sumRow1(){
+    
+    setState(() {
+      sum1 = data.num1 + data.num2 + data.num3;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(decoration: BoxDecoration(color: Colors.yellow),
+    var mBox = Container(decoration: BoxDecoration(color: Colors.yellow),
     
       child: Column(
         children: [
@@ -56,7 +45,7 @@ nextNumber(int x, int identificador) {
                   Column(
                     children: [
                       
-                      ElevatedButton(onPressed: (){nextNumber(v1, v1);}, child: Text(this.v1.toString()),),
+                      Button1(data: data),
                     ],
                     )
               ),            
@@ -64,8 +53,7 @@ nextNumber(int x, int identificador) {
                 child: 
                   Column(
                     children: [
-                      Text(this.v2.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v2, v2);}, child: Icon(Icons.next_plan)),
+                      Button2(data: data)
                     ],
                     )
               ),
@@ -73,77 +61,86 @@ nextNumber(int x, int identificador) {
                 child: 
                   Column(
                     children: [
-                      Text(this.v3.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v3, v3);}, child: Icon(Icons.next_plan)),
+                      Button3(data: data)
                     ],
                     )
               )
             ],
           ),
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v4.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v4, v4);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              ),            
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v5.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v5, v5);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              ),
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v6.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v6, v6);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              )
-            ],
-          ),
-        Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v7.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v7, v7);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              ),            
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v8.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v8, v8);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              ),
-              Card(
-                child: 
-                  Column(
-                    children: [
-                      Text(this.v9.toString()),
-                      ElevatedButton(onPressed: (){nextNumber(v9, v9);}, child: Icon(Icons.next_plan)),
-                    ],
-                    )
-              )
-            ],
-          )
+        // Row(mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1(v1)
+        //             ],
+        //             )
+        //       ),            
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1()
+        //             ],
+        //             )
+        //       ),
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1()
+        //             ],
+        //             )
+        //       )
+        //     ],
+        //   ),
+        // Row(mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1()
+        //             ],
+        //             )
+        //       ),            
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1()
+        //             ],
+        //             )
+        //       ),
+        //       Card(
+        //         child: 
+        //           Column(
+        //             children: [
+        //               Button1()
+        //             ],
+        //             )
+        //       )
+        //     ],
+        //   ),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(onPressed: (){sumRow1();}, child: Icon(Icons.summarize)),
+                  Text(this.sum1.toString()),
+
+                ],)
         ]
         ),
     );
+
+    return mBox;
   }
+}
+
+class Data {
+  int num1;
+  int num2;
+  int num3;
+
+  Data({required this.num1, required this.num2, required this.num3});
 }

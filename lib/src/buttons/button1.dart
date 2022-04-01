@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:parcial_movil/src/magicBox/magicBox.dart';
+
+class Button1 extends StatefulWidget {
+  final Data data;
+  Button1({required this.data});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _Button1();
+  }
+  
+}
+
+class _Button1 extends State<Button1>{
+
+  netxNumber(){
+    setState(() {
+      if(widget.data.num1 == 9){
+        widget.data.num1 = 1;
+      }else{
+        widget.data.num1++;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var button1 = Column(
+      children: [
+        ElevatedButton(onPressed: (){netxNumber();}, child: Text(this.widget.data.num1.toString()))
+      ],
+    );
+    return button1;
+  }
+}
