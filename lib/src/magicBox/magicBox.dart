@@ -20,9 +20,9 @@ class MagicBox extends StatefulWidget{
 
 class _MagicBox extends State<MagicBox>{ 
 
-  final data = Data(num1: 1, num2: 2, num3: 3, 
-                    num4: 4, num5: 5, num6: 6, 
-                    num7: 7, num8: 8, num9: 9);
+  final data = Data(num1: 1, num2: 1, num3: 1, 
+                    num4: 1, num5: 1, num6: 1, 
+                    num7: 1, num8: 1, num9: 1);
 
   int hrz1 = 0;
   int hrz2 = 0;
@@ -47,104 +47,63 @@ class _MagicBox extends State<MagicBox>{
       dgn1 = data.num1 + data.num5 + data.num9;
       dgn2 = data.num7 + data.num5 + data.num3;
 
-        if(hrz1 == 15 && hrz2 == 15 && hrz3 == 15 && ver1 == 15 && ver2 == 15 && ver3 == 15 && dgn1 == 15 ){
+      if(data.num1 != data.num2 && data.num1 != data.num3 && data.num1 != data.num4 && data.num1 != data.num5 &&
+          data.num1 != data.num6 && data.num1 != data.num7 && data.num1 != data.num8 && data.num1 != data.num9){
 
-          answer = "It's a magic box";
+             if(hrz1 == 15 && hrz2 == 15 && hrz3 == 15 && ver1 == 15 && ver2 == 15 && ver3 == 15 && dgn1 == 15 ){
+
+                 answer = "It's a magic box";
+          }
 
         }else{answer = "It's not a magic box";}
 
     });
   }
 
+// AQUI EMPIEZA EL PROGRAMA.
   @override
   Widget build(BuildContext context) {
-    var mBox = Center (child: Container(height: 600, width: 600, 
-      decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 6)), 
-    
+    return Center (child: 
+
+    Container(padding: EdgeInsets.all(120),height: 600, width: 600, decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 6),borderRadius: BorderRadius.circular(40)), 
       child: Column(
         children: [
         Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Card(
-                child: 
-                  Column(
-                    children: [
-                      
-                      Button1(data: data),
-                    ],
-                    )
+                child: Button1(data: data),
               ),            
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button2(data: data)
-                    ],
-                    )
+                child: Button2(data: data)
               ),
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button3(data: data)
-                    ],
-                    )
+                child: Button3(data: data,),
               )
             ],
           ),
         Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button4(data: data)
-                    ],
-                    )
+                child: Button4(data: data)
               ),            
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button5(data: data)
-                    ],
-                    )
+                child: Button5(data: data)
               ),
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button6(data: data)
-                    ],
-                    )
+                child: Button6(data: data)
               )
             ],
           ),
         Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button7(data: data)
-                    ],
-                    )
+                child: Button7(data: data)
               ),            
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button8(data: data)
-                    ],
-                    )
+                child: Button8(data: data)
               ),
               Card(
-                child: 
-                  Column(
-                    children: [
-                      Button9(data: data)
-                    ],
-                    )
+                child: Button9(data: data)
               )
             ],
           ),
@@ -152,19 +111,24 @@ class _MagicBox extends State<MagicBox>{
                 children: [
                   Column(
                     children: [
-                      Text("Validate magic box", style: TextStyle(fontSize: 25)),
-                      ElevatedButton(onPressed: (){sumMatriz();}, child: Icon(Icons.summarize)),
-                      Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
-                        child: Text(this.answer.toString(), style: TextStyle(backgroundColor: Colors.blue, fontSize: 28),),)
+                      Padding(padding: EdgeInsets.all(10)),
+                        Text("Validate magic box", style: TextStyle(fontSize: 25)),
+
+                      Padding(padding: EdgeInsets.all(10)),
+                        ElevatedButton(onPressed: (){sumMatriz();}, child: Icon(Icons.add_task)),
+
+                      Padding(padding: EdgeInsets.all(10)),
+                        Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
+                        child: Text(this.answer.toString(), style: TextStyle( fontSize: 28),),)
                       
                       ],
                   )
-                ],)
+                ],
+                )
         ]
         ),
     ));
 
-    return mBox;
   }
 }
 
