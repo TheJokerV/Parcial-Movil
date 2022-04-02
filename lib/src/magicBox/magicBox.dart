@@ -36,7 +36,7 @@ class _MagicBox extends State<MagicBox>{
   String answer = "";
 
   sumMatriz(){
-    
+
     setState(() {
       hrz1 = data.num1 + data.num2 + data.num3;
       hrz2 = data.num4 + data.num5 + data.num6;
@@ -47,16 +47,21 @@ class _MagicBox extends State<MagicBox>{
       dgn1 = data.num1 + data.num5 + data.num9;
       dgn2 = data.num7 + data.num5 + data.num3;
 
-      if(data.num1 != data.num2 && data.num1 != data.num3 && data.num1 != data.num4 && data.num1 != data.num5 &&
+    });
+  }
+
+  result(){
+    sumMatriz();
+    setState(() {
+            if(data.num1 != data.num2 && data.num1 != data.num3 && data.num1 != data.num4 && data.num1 != data.num5 &&
           data.num1 != data.num6 && data.num1 != data.num7 && data.num1 != data.num8 && data.num1 != data.num9){
 
              if(hrz1 == 15 && hrz2 == 15 && hrz3 == 15 && ver1 == 15 && ver2 == 15 && ver3 == 15 && dgn1 == 15 ){
 
                  answer = "It's a magic box";
-          }
+          }else{answer = "It's not a magic box";}
 
         }else{answer = "It's not a magic box";}
-
     });
   }
 
@@ -115,7 +120,7 @@ class _MagicBox extends State<MagicBox>{
                         Text("Validate magic box", style: TextStyle(fontSize: 25)),
 
                       Padding(padding: EdgeInsets.all(10)),
-                        ElevatedButton(onPressed: (){sumMatriz();}, child: Icon(Icons.add_task)),
+                        ElevatedButton(onPressed: (){result();}, child: Icon(Icons.add_task)),
 
                       Padding(padding: EdgeInsets.all(10)),
                         Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
