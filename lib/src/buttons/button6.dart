@@ -26,11 +26,10 @@ class _Button6 extends State<Button6>{
 
   @override
   Widget build(BuildContext context) {
-    var button6 = Column(
+    return Column(
       children: [
         ElevatedButton(onPressed: (){netxNumber();}, child: Text(this.widget.data.num6.toString(), style: TextStyle(fontSize: 25),))
       ],
     );
-    return button6;
   }
 }

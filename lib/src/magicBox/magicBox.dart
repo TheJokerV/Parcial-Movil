@@ -119,7 +119,7 @@ class _MagicBox extends State<MagicBox>{
 
                       Padding(padding: EdgeInsets.all(10)),
                         Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
-                        child: Text(this.answer.toString(), style: TextStyle( fontSize: 28),),)
+                        child: Text(this.answer, style: TextStyle( fontSize: 28),),)
                       
                       ],
                   )
