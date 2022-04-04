@@ -70,7 +70,7 @@ class _MagicBox extends State<MagicBox>{
   Widget build(BuildContext context) {
     return Center (child: 
 
-    Container(padding: EdgeInsets.all(120),height: 600, width: 600, decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 6),borderRadius: BorderRadius.circular(40)), 
+    Container(height: 600, width: 600, decoration: BoxDecoration(border: Border.all(color: Colors.grey, width: 6),borderRadius: BorderRadius.circular(40)), 
       child: Column(
         children: [
         Row(mainAxisAlignment: MainAxisAlignment.center,
@@ -124,7 +124,19 @@ class _MagicBox extends State<MagicBox>{
 
                       Padding(padding: EdgeInsets.all(10)),
                         Container(decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.grey), ),
-                        child: Text(this.answer, style: TextStyle( fontSize: 28),),)
+                        child: Text(this.answer, style: TextStyle( fontSize: 28),),),
+                        
+                      Padding(padding: EdgeInsets.all(15)),
+                        Column(children: [
+                          Text("Horizontal1: "+this.hrz1.toString()),
+                          Text("Horizontal2: "+this.hrz2.toString()),
+                          Text("Horizontal3: "+this.hrz3.toString()),
+                          Text("Vertical1: "+this.ver1.toString()),
+                          Text("Vertical2: "+this.ver2.toString()),
+                          Text("Vertical3: "+this.ver3.toString()),
+                          Text("Diagonal1: "+this.dgn1.toString()),
+                          Text("Diagonal2: "+this.dgn2.toString()),
+                        ],)
                       
                       ],
                   )
